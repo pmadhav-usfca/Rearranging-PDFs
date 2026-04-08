@@ -1,8 +1,9 @@
-name: Build PDF Manager for Win and Mac
+name: Build and Release PDF Manager
 
 on:
   push:
-    branches: [ "main" ]
+    tags:
+      - 'v*' # Triggers only when you push a tag like v1.0, v1.1, etc.
   workflow_dispatch:
 
 jobs:
@@ -36,10 +37,11 @@ jobs:
         if: matrix.os == 'macos-latest'
         run: pyinstaller --onefile --name "PDF_Manager_Mac" PDF_rearranger.py
 
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+      - name: Upload to Release
+        uses: softprops/action-gh-release@v1
         with:
-          name: PDF-Manager-${{ matrix.os }}
-          path: |
+          files: |
             dist/PDF_Manager_Win.exe
             dist/PDF_Manager_Mac
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
