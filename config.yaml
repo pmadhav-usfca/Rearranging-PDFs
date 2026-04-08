@@ -1,0 +1,36 @@
+# PDF Reordering Configuration
+
+# Give input master PDF in input_path and the final path and file name for re-arranged file
+
+# Global Settings
+settings:
+  # input_path: "C:/Users/Documents/Legal_Master.pdf"
+  # output_path: "C:/Users/Documents/Final_Rearranged_Document.pdf"
+  input_path: "./sample.pdf"
+  output_path: "./rearraged.pdf"
+
+
+
+# index -> New position, file_name, file start page and end page from original pdf
+
+# Document Reordering
+extractions:
+  - index: 3
+    file_name: "Car Deed"
+    start_pg: 4
+    end_pg: 5
+
+  # - index: 1
+  #   file_name: "House Deed"
+  #   start_pg: 1
+  #   end_pg: 1
+
+  # - index: 4
+  #   file_name: "Death Certificate"
+  #   start_pg: 2
+  #   end_pg: 3
+
+  # - index: 2
+  #   file_name: "Sale Deed 1"
+  #   start_pg: 6
+  #   end_pg: 10
