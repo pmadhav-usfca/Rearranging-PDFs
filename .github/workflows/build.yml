@@ -6,6 +6,10 @@ on:
       - 'v*' # Triggers only when you push a tag like v1.0, v1.1, etc.
   workflow_dispatch:
 
+# Moving permissions to the top level can be more reliable
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Build on ${{ matrix.os }}
